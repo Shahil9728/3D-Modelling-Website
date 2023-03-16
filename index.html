@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Modeling Website</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- For Icon -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!-- For Model -->
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <script nomodule src="https://unpkg.com/@google/model-viewer/dist/model-viewer-legacy.js"></script>
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div id="container">
+        <!-- Navbar container -->
+        <div id="navbar">
+            <div id="logo">
+                <img src="assets/logo.png" alt="logo">
+            </div>
+            <ul>
+                <li class="active">
+                    <a href="#">Home</a>
+                </li>
+                <li><a href="#">Tech</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Help</a></li>
+            </ul>
+        </div>
+        <!-- An aside -->
+        <!-- This is for holding the 3D object -->
+        <div class="main">
+            <!-- Content container -->
+            <!-- This is for holding some brief description about the 3D object -->
+            <div id="content">
+                <h2>Ferrari 250 GT Spider</h2>
+                <p>The modern car,that is fantastic</p>
+                <button id="change-color-btn">Shop</button>
+            </div>
+
+            <div id="aSide">
+                <model-viewer src="assets/source/250 GT Spider.glb" auto-rotate camera-controls id="model-viewer"
+                    class="model"></model-viewer>
+                <div class="colorpicker">
+                    <img src="assets/car-red.png" alt="" class="color" title="red">
+                    <img src="assets/car-blue.png" alt="" class="color" title="blue">
+                    <img src="assets/car-green.png" alt="" class="color" title="green">
+                    <img src="assets/car-black.png" alt="" class="color" title="black">
+                </div>
+            </div>
+
+        </div>
+        <!-- Social media icons -->
+        <!-- This is for holding some company's social media icons and related links -->
+        <div id="icons">
+            <div id="iconsLogo">
+                <ion-icon name="logo-facebook"></ion-icon>
+                <ion-icon name="logo-instagram"></ion-icon>
+                <ion-icon name="logo-youtube"></ion-icon>
+                <ion-icon name="logo-twitter"></ion-icon>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        const model = document.querySelector('.model');
+        const color = document.querySelector('.color');
+        const colorpicker = document.querySelector('.colorpicker');
+        colorpicker.addEventListener('click', (event) => {
+            if (event.target.classList.contains('color')) {
+                const color = event.target.getAttribute('title');
+                console.log(color)
+                if (color == 'red') {
+                    model.style.filter = 'brightness(1) saturate(10) contrast(1) hue-rotate(85deg)'
+                }
+                else if (color == 'blue') {
+                    model.style.filter = 'brightness(1) saturate(10) contrast(1) hue-rotate(0deg)'
+                }
+                else if (color == 'green') {
+                    model.style.filter = 'brightness(1.3) saturate(10) contrast(1) hue-rotate(241deg)'
+                }
+                else if (color == 'black')  {
+                    model.style.filter = 'brightness(1.01) saturate(10) contrast(1) hue-rotate(180deg)'
+                }
+            }
+        });
+
+    </script>
+
+
+
+
+</body>
+
+</html>

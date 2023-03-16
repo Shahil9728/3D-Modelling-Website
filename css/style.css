@@ -31,6 +31,13 @@
 
 /* This styles the logo in the navbar */
 #navbar #logo {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-weight: 100;
     margin-left: 2rem;
 }
 
@@ -160,8 +167,7 @@ button:hover {
 }
 
 
-#icons #iconsLogo ion-icon:hover
-{
+#icons #iconsLogo ion-icon:hover {
     color: gray;
 }
 
@@ -181,18 +187,31 @@ button:hover {
     filter: brightness(1) saturate(10) contrast(1) hue-rotate(0deg);
 }
 
-.colorpicker
-{
+.colorpicker {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
 }
 
-.color
-{
+.color {
     height: 80px;
     width: 80px;
-    border: 1px solid black;   
-    cursor: pointer; 
+    border: 1px solid black;
+    cursor: pointer;
+}
+
+.model {
+    position: relative;
+}
+
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader i {
+    font-size: 50px;
 }

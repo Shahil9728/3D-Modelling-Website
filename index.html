@@ -22,6 +22,7 @@
         <div id="navbar">
             <div id="logo">
                 <img src="assets/logo.png" alt="logo">
+                <h1>Modelio</h1>
             </div>
             <ul>
                 <li class="active">
@@ -47,6 +48,9 @@
             <div id="aSide">
                 <model-viewer src="assets/source/250 GT Spider.glb" auto-rotate camera-controls id="model-viewer"
                     class="model"></model-viewer>
+                <div class="loader">
+                    <i class="fa fa-spinner fa-spin"></i>
+                </div>
                 <div class="colorpicker">
                     <img src="assets/car-red.png" alt="" class="color" title="red">
                     <img src="assets/car-blue.png" alt="" class="color" title="blue">
@@ -87,10 +91,23 @@
                 else if (color == 'green') {
                     model.style.filter = 'brightness(1.3) saturate(10) contrast(1) hue-rotate(241deg)'
                 }
-                else if (color == 'black')  {
+                else if (color == 'black') {
                     model.style.filter = 'brightness(1.01) saturate(10) contrast(1) hue-rotate(180deg)'
                 }
             }
+        });
+
+        const img = document.querySelector('.model');
+        const loader = document.querySelector('.loader');
+
+        img.addEventListener('load', () => {
+            loader.style.display = 'none';
+            img.style.display = 'block';
+        });
+
+        img.addEventListener('error', () => {
+            loader.style.display = 'none';
+            img.style.display = 'none';
         });
 
     </script>

@@ -47,7 +47,7 @@ This section lists about the languages used in this project .
 <!-- IMAGES -->
 ## Portfolio Screenshots
 
-![Alt image](3dmodel.png)
+![Alt image](assets/3dmodel.png)
 
 <br/>
 
